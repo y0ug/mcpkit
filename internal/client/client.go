@@ -59,31 +59,6 @@ type Stream struct {
 	Stderr io.ReadCloser
 }
 
-func FetchAll[T any](
-	ctx context.Context,
-	fetch func(ctx context.Context, cursor *string) ([]T, *string, error),
-) ([]T, error) {
-	var allItems []T
-	var cursor *string
-
-	for {
-		items, nextCursor, err := fetch(ctx, cursor)
-		if err != nil {
-			return nil, fmt.Errorf("fetch failed: %w", err)
-		}
-
-		allItems = append(allItems, items...)
-
-		if nextCursor == nil {
-			break
-		}
-
-		cursor = nextCursor
-	}
-
-	return allItems, nil
-}
-
 func logHandler(logger *slog.Logger) jsonrpc2.HandlerFunc {
 	return func(ctx context.Context, req *jsonrpc2.Request) (interface{}, error) {
 		logger.Info("Request received",
