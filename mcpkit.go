@@ -7,7 +7,10 @@ import (
 	"github.com/y0ug/mcpkit/internal/client"
 )
 
-type Client = client.Client
+type (
+	Client = client.Client
+	Tool   = client.Tool
+)
 
 func NewClient(
 	ctx context.Context,
