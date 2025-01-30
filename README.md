@@ -1,4 +1,4 @@
-# GoMCP
+# MCPKit
 
 A Go implementation of the Model Context Protocol (MCP) client. This package provides a clean and idiomatic way to interact with MCP servers in Go applications.
 
@@ -12,7 +12,7 @@ A Go implementation of the Model Context Protocol (MCP) client. This package pro
 ## Installation
 
 ```bash
-go get github.com/yourusername/gomcp
+go get github.com/y0ug/mcpkit
 ```
 
 ## Quick Start
@@ -24,7 +24,7 @@ import (
     "context"
     "log"
     
-    "github.com/yourusername/gomcp/client"
+    "github.com/yourusername/mcpkit/client"
 )
 
 func main() {
