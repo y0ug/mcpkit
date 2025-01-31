@@ -1,4 +1,4 @@
-package client
+package mcpkit
 
 import (
 	"bufio"
@@ -77,8 +77,8 @@ func (e *FatalServerError) Error() string {
 	return e.Msg
 }
 
-// New creates a new MCP client and starts the language server
-func New(
+// NewClient creates a new MCP client and starts the language server
+func NewClient(
 	ctxParent context.Context,
 	logger *slog.Logger,
 	serverCmd string,
